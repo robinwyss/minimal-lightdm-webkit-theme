@@ -1,5 +1,5 @@
-#minimal-lightdm-webkit-theme
-![Screenshot](Screenshots/screenshot.png "Screenshot")
+# minimal-lightdm-webkit-theme
+![screenshot](/screenshots/screenshot.png "Screenshot")
 ## Installation
 
 minimal-lightdm-webkit-theme can be obtained by either downloading a `.zip` file of the contents of the repository, or by cloning the repository via `git`. In either case, the theme may be applied by modifying `/etc/lightdm/lightdm-webkit-greeter.conf` or `/etc/lightdm/lightdm-webkit2-greeter.conf` as such:
