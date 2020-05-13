@@ -30,26 +30,26 @@ if (typeof lightdm == "undefined") {
   lightdm.can_shutdown = true;
 
   lightdm.users = [
-    {
-      name: "clarkk",
-      real_name: "Superman",
-      display_name: "Clark Kent",
-      image: "",
-      language: "en_US",
-      layout: null,
-      session: null,
-      logged_in: false
-    },
-    {
-      name: "brucew",
-      real_name: "Batman",
-      display_name: "Bruce Wayne",
-      image: "/home/brokenImage.gif",
-      language: "en_US",
-      layout: null,
-      session: null,
-      logged_in: false
-    },
+    // {
+    //   name: "clarkk",
+    //   real_name: "Superman",
+    //   display_name: "Clark Kent",
+    //   image: "",
+    //   language: "en_US",
+    //   layout: null,
+    //   session: null,
+    //   logged_in: false
+    // },
+    // {
+    //   name: "brucew",
+    //   real_name: "Batman",
+    //   display_name: "Bruce Wayne",
+    //   image: "/home/brokenImage.gif",
+    //   language: "en_US",
+    //   layout: null,
+    //   session: null,
+    //   logged_in: false
+    // },
     {
       name: "peterp",
       real_name: "Spiderman",
@@ -159,15 +159,6 @@ if (typeof theme_utils == "undefined") {
       return "2002-08-18 00:05:20";
     }
   };
-}
-
-if (typeof theme_utils == "undefined") {
-	theme_utils = {
-		get_current_localized_time: function(){
-			return "2002-08-18 00:05:20";
-		}
-	}
-	
 }
 
 function _lightdm_mock_check_argument_length(args, length) {

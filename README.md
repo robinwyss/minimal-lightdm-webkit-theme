@@ -1,9 +1,9 @@
 <div align="center">
-  <h1>aqua-lightdm-webkit-theme</h1>
-  <img alt="screenshot" src=https://raw.githubusercontent.com/paysonwallach/aqua-lightdm-webkit-theme/master/screenshots/aqua-lightdm-webkit-theme.png>
+  <h1>minimal-lightdm-webkit-theme</h1>
+  
   <br>
   <br>
-  <p>A LightDM webkit greeter theme inspired by macOS, based on <a href=https://github.com/ZoomTen/lightdm-webkit-theme-macos>lightdm-webkit-theme-macos</a>, and updated with Catalina in mind.</p>
+  <p> inspired by macOS, based on <a href=https://github.com/ZoomTen/lightdm-webkit-theme-macos>lightdm-webkit-theme-macos</a>, and updated with Catalina in mind.</p>
   <a href=https://github.com/paysonwallach/aqua-lightdm-webkit-theme/release/latest>
     <img src=https://img.shields.io/github/v/release/paysonwallach/aqua-lightdm-webkit-theme?style=flat-square>
   </a>
@@ -15,21 +15,23 @@
   </a>
   <br>
 </div>
-
+A minimal LightDM webkit greeter theme
+<img alt="screenshot" src=screenshot.png>
+![Screenshot](screenshot.png "Screenshot")
 ## Installation
 
-aqua-lightdm-webkit-theme can be obtained by either downloading a `.zip` file of the contents of the repository, or by cloning the repository via `git`. In either case, the theme may be applied by modifying `/etc/lightdm/lightdm-webkit-greeter.conf` or `/etc/lightdm/lightdm-webkit2-greeter.conf` as such:
+minimal-lightdm-webkit-theme can be obtained by either downloading a `.zip` file of the contents of the repository, or by cloning the repository via `git`. In either case, the theme may be applied by modifying `/etc/lightdm/lightdm-webkit-greeter.conf` or `/etc/lightdm/lightdm-webkit2-greeter.conf` as such:
 
 ```sh
-webkit-theme = aqua
+webkit-theme = minimal
 ```
 
 ### From zip
 
-Download the [latest release](https://github.com/paysonwallach/aqua-lightdm-webkit-theme/releases/latest), and extract it to the `lightdm-webkit-greeter` theme directory.
+Download the [latest release](https://github.com/robinwyss/minimal-lightdm-webkit-theme/releases/latest), and extract it to the `lightdm-webkit-greeter` theme directory.
 
 ```sh
-unzip -o aqua-lightdm-webkit-theme.zip -d /usr/share/lightdm-webkit/themes/aqua
+unzip -o minimal-lightdm-webkit-theme.zip -d /usr/share/lightdm-webkit/themes/minimal
 ```
 
 ### From git
@@ -37,21 +39,5 @@ unzip -o aqua-lightdm-webkit-theme.zip -d /usr/share/lightdm-webkit/themes/aqua
 Clone this repository into the `lightdm-webkit-greeter` theme directory.
 
 ```sh
-git clone https://github.com/paysonwallach/aqua-lightdm-webkit-theme /usr/share/lightdm-webkit/themes/aqua
+git clone https://github.com/robinwyss/minimal-lightdm-webkit-theme /usr/share/lightdm-webkit/themes/minimal
 ```
-
-## Customization
-
-By default, the theme looks for its background image at `/usr/share/backgrounds/current`, which can simply be a symlink to the user's current background. Note that this image must be readable by the `lightdm` user. The background image can otherwise be set by modifying the `background` property in `resources/img/style.css`.
-
-## Contributing
-
-Pull requests are welcome! For major changes, please open an issue first to discuss the matter.
-
-## Code of Conduct
-
-By participating in this project, you agree to abide by the terms of the [Code of Conduct](https://github.com/paysonwallach/aqua-lightdm-webkit-theme/blob/master/CODE_OF_CONDUCT.md).
-
-## License
-
-[aqua-lightdm-webkit-theme](https://github.com/paysonwallach/aqua-lightdm-webkit-theme) is licensed under the [Hippocratic License](https://firstdonoharm.dev).

@@ -1,0 +1,56 @@
+
+@font-face {
+    font-family: "BergenMono";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../font/BergenMono-Regular.woff2") format("woff2");
+  }
+
+body {
+    margin: 0;
+    font-family: 'BergenMono', 'monospace', sans-serif;
+    font-size: 16px;
+    color: lightgray;
+    background-color: #242d2e;
+    cursor: default;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.content {
+    flex-grow: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#users {
+    width: 180px;
+    max-height: 200px;
+    overflow: auto;
+    text-align: center;
+}
+
+#passwordinput {
+    margin-top: 20px;
+    outline: none;
+    width: 180px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    color: white;
+    font-size: 16px;
+}
+.hide {
+    display: none;
+}
