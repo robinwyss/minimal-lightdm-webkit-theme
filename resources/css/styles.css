@@ -1,4 +1,8 @@
 
+@media screen and (min-width: 3000px){
+  html { zoom: 2.0; }
+}
+
 @font-face {
     font-family: "BergenMono";
     font-style: normal;

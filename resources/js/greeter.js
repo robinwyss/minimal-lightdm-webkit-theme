@@ -1,8 +1,6 @@
+var selected_user;
 
 function startAuthentication(username) {
-  if (lightdm._username) {
-      lightdm.cancel_authentication();
-  }
   lightdm.cancel_timed_login();
 
   selected_user = username;
@@ -22,11 +20,11 @@ function showUser(username) {
   const userContainer = document.querySelector("#users");
   var userNodes = Array.from(userContainer.childNodes);
   userNodes.forEach(node => {
-      if (node.id === username) {
-          node.classList.remove('hide')
-      } else {
-          node.classList.add('hide')
-      }
+    if (node.id === username) {
+      node.classList.remove('hide')
+    } else {
+      node.classList.add('hide')
+    }
   });
 }
 
@@ -37,7 +35,7 @@ function showAllUsers() {
   const userContainer = document.querySelector("#users");
   var userNodes = Array.from(userContainer.childNodes);
   userNodes.forEach(node => {
-      node.classList.remove('hide')
+    node.classList.remove('hide')
   });
 }
 
@@ -51,40 +49,44 @@ function initialize_users() {
   const userContainer = document.querySelector("#users");
   userContainer.innerHTML = '';
   for (let user of users) {
-      var span = document.createElement('div');
-      span.innerText = user.display_name;
-      span.id = user.name;
-      span.onclick = user_clicked;
-      userContainer.appendChild(span);
+    var span = document.createElement('div');
+    span.innerText = user.display_name;
+    span.id = user.name;
+    span.onclick = user_clicked;
+    userContainer.appendChild(span);
   }
   if (users.length === 1) {
-      startAuthentication(users[0].name);
+    startAuthentication(users[0].name);
   }
 }
 
 function initialize() {
+  if (typeof lightdm !== 'undefined') {
+    console.warn('lightdm is undefined, try after again after a delay');
+  } else {
+    setTimeout(initialize, 100);
+  }
+
   initialize_users();
   document.addEventListener("keydown", key_press_handler);
 }
 
 function key_press_handler(event) {
-  let action = null;
-  show_message('pressed ' + event.code);
   switch (event.code) {
-      case "Enter":
-          if (lightdm._username) {
-              provideSecret()
-          }
-          break;
-      case "Escape":
-          if (lightdm._username) {
-              lightdm.cancel_authentication();
-          }
-          showAllUsers();
-          break;
+    case "Enter":
+      if (selected_user) {
+        provideSecret()
+      }
+      break;
+    case "Escape":
+      if (selected_user) {
+        selected_user = undefined;
+        lightdm.cancel_authentication();
+      }
+      showAllUsers();
+      break;
   }
 }
-
 
 
 /* Callback API. Called by the webkit greeter */
@@ -103,15 +105,12 @@ function show_prompt(text) {
 * called when the greeter is finished the authentication request
 */
 function authentication_complete() {
-  show_message('authentication completed');
   if (lightdm.is_authenticated) {
-    show_message(`login user: ${lightdm.authentication_user} session: ${lightdm.default_session}`);
-      lightdm.login(lightdm.authentication_user, lightdm.default_session);
+    lightdm.login(lightdm.authentication_user, lightdm.default_session);
   } else {
-      show_message('wrong password');
-      const passwordinput = document.querySelector("#passwordinput");
-      passwordinput.value = '';
-      startAuthentication(selected_user);
+    const passwordinput = document.querySelector("#passwordinput");
+    passwordinput.value = '';
+    startAuthentication(selected_user);
   }
 }
 
