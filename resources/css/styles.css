@@ -4,20 +4,37 @@
     font-style: normal;
     font-weight: normal;
     src: url("../font/BergenMono-Regular.woff2") format("woff2");
-  }
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 
 body {
     margin: 0;
     font-family: 'BergenMono', 'monospace', sans-serif;
     font-size: 16px;
     color: lightgray;
-    background-color: #242d2e;
+    background-color: #000000;
     cursor: default;
+    height: 100%;
+}
+.background {
+    background-color: #242d2e;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    animation: fadein 2s;
 }
 .container {
     display: flex;
     flex-direction: column;
     min-height: 100%;
+    animation: fadein 1s;
 }
 
 .footer {
@@ -25,6 +42,7 @@ body {
     justify-content: flex-end;
     padding: 10px;
     font-size: 14px;
+    animation: fadein 3s;
 }
 
 .content {
@@ -45,12 +63,33 @@ body {
     margin-top: 20px;
     outline: none;
     width: 180px;
-    background: transparent;
+    background-color: lightgray;
     border: none;
-    border-bottom: 1px solid lightgray;
-    color: white;
     font-size: 16px;
+    border-radius: 3px;
+    box-shadow: inset 0 0 2px #000000;
+    color: 242d2e;
+    padding: 4px 10px;
 }
+
+button {
+    background: transparent;
+    color: 242d2e;
+    border: none;
+    margin: 0;
+    padding: 0;
+    margin-left: -25px;
+    margin-top: -26px;
+    height: 25px;
+    width: 25px;
+}
+
+#message {
+    height: 20px;
+    overflow: visible;
+    width: 180px;
+}
+
 .hide {
     display: none;
 }

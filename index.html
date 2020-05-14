@@ -7,14 +7,14 @@
     <script type="text/javascript" src="resources/js/greeter.js" defer></script>
 </head>
 
-<body onload="initialize()" oncontextmenu="return false;">
+<body onload="initialize()">
+    <div class="background"></div>
     <div class="container">
-
         <div class="content">
             <div>
                 <div id="users" class="users"></div>
                 <div>
-                    <input id="passwordinput" class="hide" type="password">
+                    <input id="passwordinput" class="hide" type="password"><button onclick="provideSecret()">&gt;</button>
                 </div>
                 <div id="message"></div>
             </div>

@@ -69,6 +69,7 @@ function initialize() {
 
 function key_press_handler(event) {
   let action = null;
+  show_message('pressed ' + event.code);
   switch (event.code) {
       case "Enter":
           if (lightdm._username) {
@@ -102,9 +103,12 @@ function show_prompt(text) {
 * called when the greeter is finished the authentication request
 */
 function authentication_complete() {
+  show_message('authentication completed');
   if (lightdm.is_authenticated) {
+    show_message(`login user: ${lightdm.authentication_user} session: ${lightdm.default_session}`);
       lightdm.login(lightdm.authentication_user, lightdm.default_session);
   } else {
+      show_message('wrong password');
       const passwordinput = document.querySelector("#passwordinput");
       passwordinput.value = '';
       startAuthentication(selected_user);
